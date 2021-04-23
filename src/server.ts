@@ -1,14 +1,6 @@
-import express from 'express';
+import { http, port } from './http';
+import './websocket/client';
 
-import './database';
-import { routes } from './routes';
-
-const app = express();
-const port = 3333;
-
-app
-    .use(express.json())
-    .use(routes)
-    .listen(port,()=> {
+http.listen(port, () => {
     console.log(`Servidor aberto na porta ${port}`);
 });
